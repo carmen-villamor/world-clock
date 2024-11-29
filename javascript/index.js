@@ -27,18 +27,20 @@ function updateTime() {
 }
 
 function updateCity(event) {
-  //console.log(event.target.value);
   let city = event.target.value;
-  let cityFormatted = event.target.value.replace("_", " ").split("/")[1];
+
+  if (city === "currentCity") {
+    city = moment.tz.guess();
+  }
+
   let cityDate = moment().tz(city).format("MMMM Do YYYY");
   let cityTime = moment().tz(city).format("h:mm:ss [<small>]A[</small>]");
-  //console.log(cityTime);
 
   let citiesElement = document.querySelector("#cities");
   citiesElement.innerHTML = `
     <div class="city">
      <div>
-    <h2>${cityFormatted}</h2>
+    <h2>${city.replace("_", " ").split("/")[1]}</h2>
     <div class="date">${cityDate}</div>
      </div>
     <div class="time">${cityTime}</div>
