@@ -45,6 +45,8 @@ function updateCity(event) {
      </div>
     <div class="time">${cityTime}</div>
     </div>
+
+    <a href="/">Back to home page</a>
         `;
 }
 
