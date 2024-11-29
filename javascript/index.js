@@ -51,12 +51,10 @@ function updateCity(event) {
 
   if (htmlString.length < 2) {
     citiesElement.innerHTML =
-      htmlString[0] + `<a href="index.html">Back to home page</a>`;
+      htmlString[0] + `<a href="/">Back to home page</a>`;
   } else {
     citiesElement.innerHTML =
-      htmlString[0] +
-      htmlString[1] +
-      `<a href="index.html">Back to home page</a>`;
+      htmlString[0] + htmlString[1] + `<a href="/">Back to home page</a>`;
   }
 }
 
