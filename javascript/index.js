@@ -26,6 +26,8 @@ function updateTime() {
   }
 }
 
+let htmlString = [];
+
 function updateCity(event) {
   let city = event.target.value;
 
@@ -37,17 +39,25 @@ function updateCity(event) {
   let cityTime = moment().tz(city).format("h:mm:ss [<small>]A[</small>]");
 
   let citiesElement = document.querySelector("#cities");
-  citiesElement.innerHTML = `
+
+  htmlString.unshift(`
     <div class="city">
      <div>
     <h2>${city.replace("_", " ").split("/")[1]}</h2>
     <div class="date">${cityDate}</div>
      </div>
     <div class="time">${cityTime}</div>
-    </div>
+    </div>`);
 
-    <a href="/">Back to home page</a>
-        `;
+  if (htmlString.length < 2) {
+    citiesElement.innerHTML =
+      htmlString[0] + `<a href="index.html">Back to home page</a>`;
+  } else {
+    citiesElement.innerHTML =
+      htmlString[0] +
+      htmlString[1] +
+      `<a href="index.html">Back to home page</a>`;
+  }
 }
 
 updateTime();
