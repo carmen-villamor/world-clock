@@ -62,10 +62,10 @@ function updateCity(event) {
     <div class="time">${cityTime}</div>
     </div>`);
 
-  if (htmlString.length < 2) {
+  if (htmlString.length == 1) {
     citiesElement.innerHTML =
       htmlString[0] + `<a href="/">Back to home page</a>`;
-  } else if (htmlString.length < 1) {
+  } else if (htmlString.length == 2) {
     citiesElement.innerHTML =
       htmlString[0] + htmlString[1] + `<a href="/">Back to home page</a>`;
   } else {
