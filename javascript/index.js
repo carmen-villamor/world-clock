@@ -24,6 +24,19 @@ function updateTime() {
       "h:mm:ss [<small>]A[</small>]"
     );
   }
+
+  //Iceland
+  let icelandElement = document.querySelector("#iceland");
+  if (icelandElement) {
+    let icelandDateElement = icelandElement.querySelector(".date");
+    let icelandTimeElement = icelandElement.querySelector(".time");
+    let icelandTime = moment().tz("Iceland");
+
+    icelandDateElement.innerHTML = icelandTime.format("MMMM Do YYYY");
+    icelandTimeElement.innerHTML = icelandTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
 }
 
 let htmlString = [];
@@ -52,9 +65,15 @@ function updateCity(event) {
   if (htmlString.length < 2) {
     citiesElement.innerHTML =
       htmlString[0] + `<a href="/">Back to home page</a>`;
-  } else {
+  } else if (htmlString.length < 1) {
     citiesElement.innerHTML =
       htmlString[0] + htmlString[1] + `<a href="/">Back to home page</a>`;
+  } else {
+    citiesElement.innerHTML =
+      htmlString[0] +
+      htmlString[1] +
+      htmlString[2] +
+      `<a href="/">Back to home page</a>`;
   }
 }
 
